@@ -3,13 +3,47 @@
   "extends": [
     "config:recommended"
   ],
-  "timezone": "Asia/Kolkata",
-  "schedule": [
-    "at any time"
+
+  "baseBranches": [
+    "main"
   ],
+
+  "timezone": "Asia/Kolkata",
+
+  "schedule": [
+    "after 4pm and before 5pm on Wednesday"
+  ],
+
   "labels": [
     "renovate",
     "dependencies"
   ],
+
+  "separateMajorMinor": true,
+
+  "prConcurrentLimit": 5,
+  "branchConcurrentLimit": 5,
+
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "Weekly Dependency Updates"
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "groupName": null,
+      "labels": [
+        "renovate",
+        "dependencies",
+        "major-update"
+      ]
+    }
+  ],
+
   "automerge": false
 }
